@@ -8,7 +8,7 @@ from django.db.models import Sum
 class UserAdmin(ProfileBukuAdmin):
     fieldsets = (
         (None, {"fields":("email", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name")},),
+        ("Personal info", {"fields": ("first_name", "last_name", "username_user")},),
         ("Permission", {"fields":("is_active", "is_staff", "is_superuser", "groups", "user_permissions")},),
         ("Important date", {"fields": ("last_login", "date_joined")},),
     )

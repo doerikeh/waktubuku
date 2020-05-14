@@ -18,13 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from knox import views as knox_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("profilebuku.urls")),
-    path("", include("story.urls"))
+    path("api/", include("profilebuku.api.urls")),
+    path("", include("story.api.urls")),
 ]   
 
 if settings.DEBUG:

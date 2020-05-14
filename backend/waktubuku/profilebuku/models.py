@@ -7,20 +7,22 @@ from rest_framework.authtoken.models import Token
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, email, password, **extra_field):
+    def _create_user(self, email, username_user, password, **extra_field):
         if not email:
             raise ValueError("harus memasukan email")
+        # if username_user is None:
+        #     raise ValueError("username Harus Di isi")
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_field)
+        user = self.model(email=email, username_user=username_user ,**extra_field)
 
         user.set_password(password)
         user.save(using=self._db)
         return user
     
-    def create_user(self, email, password=None, **extra_field):
+    def create_user(self, email, username_user, password=None, **extra_field):
         extra_field.setdefault("is_staff", False)
         extra_field.setdefault("is_superuser", False)
-        return self._create_user(email, password, **extra_field)
+        return self._create_user(email, password, username_user, **extra_field)
 
     def create_superuser(self, email, password, **extra_field):
         extra_field.setdefault("is_staff", True)
@@ -39,16 +41,12 @@ class UserManager(BaseUserManager):
 
 
 class UserModel(AbstractUser):
-    username = models.CharField(max_length=200)
+    username = None
+    username_user = models.CharField('username_user', max_length=200, blank=True, null=True)
     email = models.EmailField('email address', unique=True)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username_user']
     objects = UserManager()
-
-@receiver(post_save, sender=UserModel)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
 
 
 class Saldo(models.Model):
