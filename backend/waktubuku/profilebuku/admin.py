@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserModel, Saldo, UserLoginActivity
+from .models import UserModel, Saldo, AuditEntry
 from django.utils.html import format_html
 from django.contrib.auth.admin import UserAdmin as ProfileBukuAdmin
 from django.db.models import Sum
@@ -30,7 +30,7 @@ class DateYearFilter(admin.SimpleListFilter):
 class UserAdmin(ProfileBukuAdmin):
     fieldsets = (
         (None, {"fields":("email", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name", "username_user", "no_telepon", "alamat", "biografi", "gender",)},),
+        ("Personal info", {"fields": ("first_name", "last_name", "username_user","slug", "no_telepon", "alamat", "biografi", "gender",)},),
         ("Personal Picture", {"fields": ("image_profile", "image_walpaper",)},),
         ("Permission", {"fields":("is_active", "is_staff", "is_superuser", "groups", "user_permissions")},),
         ("Important date", {"fields": ("last_login", "date_joined")},),
@@ -41,11 +41,12 @@ class UserAdmin(ProfileBukuAdmin):
     )
 
 
-    list_filter = ("is_staff", "is_superuser", "is_active",DateYearFilter,)
+    list_filter = ("is_staff", "is_superuser", "is_active",DateYearFilter, "gender")
     list_display_links = ("email",)
     list_editable = ("gender",)
+    prepopulated_fields = {"slug": ("username_user",)}
     date_hierarchy = "date_updated"
-    list_display = ("image_profile","email", "username_user", "gender", "slug","is_staff","date_updated" , "last_login",)
+    list_display = ("img_profile","email", "username_user", "gender", "slug","is_staff","date_updated" , "last_login",)
     search_fields = ("email", "first_name", "last_name", "username_user", "alamat", "date_updated", "gender",)
     ordering = ("email",)
 
@@ -55,7 +56,7 @@ class UserAdmin(ProfileBukuAdmin):
                 '<img src="%s" width="100" heigth="100" />' % obj.image_profile.url
             )
         return ""
-    img_profile.short_description = "Profile"
+    img_profile.short_description = "Usermodel"
 
 
 
@@ -65,6 +66,7 @@ class SaldoAdmin(admin.ModelAdmin):
     list_display = ("date_created", "date_updated")
 
 
-@admin.register(UserLoginActivity)
-class UserActivityAdmin(admin.ModelAdmin):
-    list_display = ("login_Ip", "login_datetime", "login_username", "status",)
+@admin.register(AuditEntry)
+class AuditEntryAdmin(admin.ModelAdmin):
+    list_display = ['action', 'username', 'ip',]
+    list_filter = ['action',]
