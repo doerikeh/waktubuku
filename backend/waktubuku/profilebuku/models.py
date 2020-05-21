@@ -5,6 +5,19 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.signals import user_logged_in, user_logged_out, user_login_failed
 from django.dispatch import receiver
 
+
+class Saldo(models.Model):
+    penghasilan = models.DecimalField(decimal_places=2, max_digits=30)
+    dana_masuk = models.DecimalField(decimal_places=2, max_digits=30)
+    dana_keluar = models.DecimalField(decimal_places=2, max_digits=30)
+    keterangan = models.CharField(max_length=400)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.penghasilan)
+
+
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
@@ -71,6 +84,7 @@ class UserModel(AbstractUser):
     biografi = models.TextField()
     alamat = models.CharField(max_length=300)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=100)
+    saldo = models.ForeignKey(Saldo, on_delete=models.CASCADE, null=True, blank=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username_user']
     objects = UserManager()
@@ -78,17 +92,13 @@ class UserModel(AbstractUser):
     def __str__(self):
         return f'{self.username_user} User'
 
+    class Meta:
+        permissions = (
+                ('user','Can read user'),
+            )
 
-class Saldo(models.Model):
-    penghasilan = models.DecimalField(decimal_places=2, max_digits=30)
-    dana_masuk = models.DecimalField(decimal_places=2, max_digits=30)
-    dana_keluar = models.DecimalField(decimal_places=2, max_digits=30)
-    keterangan = models.CharField(max_length=400)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.penghasilan)
+
 
     
 

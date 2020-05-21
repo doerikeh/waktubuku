@@ -30,7 +30,7 @@ class DateYearFilter(admin.SimpleListFilter):
 class UserAdmin(ProfileBukuAdmin):
     fieldsets = (
         (None, {"fields":("email", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name", "username_user","slug", "no_telepon", "alamat", "biografi", "gender",)},),
+        ("Personal info", {"fields": ("first_name", "last_name", "username_user","slug", "no_telepon", "alamat", "biografi", "gender", 'saldo')},),
         ("Personal Picture", {"fields": ("image_profile", "image_walpaper",)},),
         ("Permission", {"fields":("is_active", "is_staff", "is_superuser", "groups", "user_permissions")},),
         ("Important date", {"fields": ("last_login", "date_joined")},),
@@ -57,6 +57,10 @@ class UserAdmin(ProfileBukuAdmin):
             )
         return ""
     img_profile.short_description = "Usermodel"
+
+    def get_readonly_fields(self, request, obj=None):
+        if not request.user.is_superuser and request.user.has_perm('usermodels.read_user'):
+            return [f.email for f in self.model._meta.fields]
 
 
 
