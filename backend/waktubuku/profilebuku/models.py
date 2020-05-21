@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.dispatch import receiver
-from django.db.models.signals import post_save
-from rest_framework.authtoken.models import Token
+from django.contrib.auth.signals import user_logged_in
+from phonenumber_field.modelfields import PhoneNumberField
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
         # if username_user is None:
         #     raise ValueError("username Harus Di isi")
         email = self.normalize_email(email)
-        user = self.model(email=email, username_user=username_user ,**extra_field)
+        user = self.model(email=email, username_user=username_user, **extra_field)
 
         user.set_password(password)
         user.save(using=self._db)
@@ -22,9 +22,21 @@ class UserManager(BaseUserManager):
     def create_user(self, email, username_user, password=None, **extra_field):
         extra_field.setdefault("is_staff", False)
         extra_field.setdefault("is_superuser", False)
-        return self._create_user(email, password, username_user, **extra_field)
+        return self._create_user(email, username_user, password, **extra_field)
 
-    def create_superuser(self, email, password, **extra_field):
+    def _create_superuser(self, email, password, **extra_field):
+        if not email:
+            raise ValueError("harus memasukan email")
+        # if username_user is None:
+        #     raise ValueError("username Harus Di isi")
+        email = self.normalize_email(email)
+        user = self.model(email=email,  **extra_field)
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email,  password, **extra_field):
         extra_field.setdefault("is_staff", True)
         extra_field.setdefault("is_superuser", True)
 
@@ -35,18 +47,35 @@ class UserManager(BaseUserManager):
 
         if extra_field.get("is_superuser") is not True:
             raise ValueError(
-            "Superuser must have is_superuser=True."
+            "Superuser must have is_supaseruser=True."
             )
-        return self._create_user(email, password, **extra_field)
+        return self._create_superuser(email, password, **extra_field)
 
 
 class UserModel(AbstractUser):
+
+    GENDER_CHOICES = (
+        ('Wanita', 'wanita'),
+        ('Laki-Laki', 'laki-laki')
+    )
+
     username = None
     username_user = models.CharField('username_user', max_length=200, blank=True, null=True)
+    slug = models.SlugField()
     email = models.EmailField('email address', unique=True)
+    no_telepon = models.CharField( max_length=20)
+    image_profile = models.ImageField(upload_to="image_profile/%Y/%m/%d", blank=True)
+    image_walpaper = models.ImageField(upload_to="image_penwlpr_field/%Y/%m/%d", blank=True)
+    date_updated = models.DateTimeField(auto_now=True)
+    biografi = models.TextField()
+    alamat = models.CharField(max_length=300)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=100)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username_user']
     objects = UserManager()
+
+    def __str__(self):
+        return f'{self.username_user} User'
 
 
 class Saldo(models.Model):
@@ -60,22 +89,20 @@ class Saldo(models.Model):
     def __str__(self):
         return str(self.penghasilan)
 
+    
 
-class ProfileWBModel(models.Model):
+class UserLoginActivity(models.Model):
+    SUCCESS = 'S'
+    FAILED = 'F'
 
-    GENDER_CHOICES = (
-        ('Wanita', 'wanita'),
-        ('Laki-Laki', 'laki-laki')
-    )
+    LOGIN_STATUS = ((SUCCESS, 'Success'), (FAILED, 'Failed'))
 
-    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    slug = models.SlugField()
-    saldo = models.ForeignKey(Saldo, on_delete=models.SET_DEFAULT, default=1)
-    image_profile = models.ImageField(upload_to="image_profile/%Y/%m/%d", blank=True)
-    image_walpaper = models.ImageField(upload_to="image_penwlpr_field/%Y/%m/%d", blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
-    biografi = models.TextField()
-    alamat = models.CharField(max_length=300)
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=100)
+    login_Ip = models.GenericIPAddressField(null=True, blank=True)
+    login_datetime = models.DateTimeField(auto_now=True)
+    login_username = models.CharField(max_length=100, null=True, blank=True)
+    status = models.CharField(max_length=1, default=SUCCESS, choices=LOGIN_STATUS, blank=True, null=True)
+    user_agent_info = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = 'user_login_activity'
+        verbose_name_plural = 'user_login_activities'

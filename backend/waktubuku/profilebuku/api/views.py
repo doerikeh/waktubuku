@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from ..models import ProfileWBModel, UserModel
-from .serializer import ProfileSerializer, UserModelSerialier, UserRegister, UserLogin
+from ..models import UserModel
+from .serializer import UserModelSerialier, UserRegister, UserLogin
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import generics
+from rest_framework import status, generics
 from knox.models import AuthToken
 from rest_framework import viewsets
 
@@ -18,7 +17,7 @@ class UserRegisterApi(generics.GenericAPIView):
         user = serializer.save()
         return Response({
             "user": UserModelSerialier(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)[1]
+            "token": AuthToken.objects.create(user)[1],
         })
 
 class UserLoginApi(generics.GenericAPIView):
@@ -41,10 +40,3 @@ class UserAPIView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
-
-class ProfilApi(viewsets.ModelViewSet):
-    queryset = ProfileWBModel.objects.all()
-    serializer_class = ProfileSerializer
-
-
-

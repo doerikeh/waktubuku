@@ -1,28 +1,17 @@
 from rest_framework import serializers
-from ..models import ProfileWBModel, UserModel
+from ..models import UserModel
 from django.contrib.auth import authenticate
+from django.contrib.auth import user_logged_in
+from phonenumber_field.serializerfields import PhoneNumberField
+
 
 UserModel._meta.get_field('email')._unique = True
 
 class UserModelSerialier(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserModel
-        fields = ("id", "email", "username_user")
+        fields = ("id", "email", "username_user", "no_telepon")
         
-
-
-class ProfileSerializer(serializers.ModelSerializer):
-
-    user = UserModelSerialier()
-
-    class Meta:
-        model = ProfileWBModel
-        fields = ("id", "slug", "image_profile", "image_walpaper", "date_created",
-                    "date_updated", "biografi", "alamat", "gender", "saldo","user")
-        lookup_field = 'slug'
-        extra_kwargs = {
-            'url': {'lookup_field': 'slug'}
-        }
 
 class UserRegister(serializers.ModelSerializer):
     class Meta:
@@ -45,7 +34,8 @@ class UserLogin(serializers.Serializer):
     password = serializers.CharField()
 
     def validate(self, data):
-        user = authenticate(**data)
+        user = authenticate(request=self.context['request'], **data)
         if user and user.is_active:
+            user_logged_in.send(sender=user.__class__, request=self.context['request'], user=user)
             return user
         raise serializers.ValidationError("tidak cocok")
