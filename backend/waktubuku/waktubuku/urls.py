@@ -18,6 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "WaktuBuku Admin"
+admin.site.site_title = "Waktubuku Admin"
+admin.site.index_title = "WaktuBuku administrator"
+admin.empty_value_display = '**Empty**'
 
 
 urlpatterns = [
