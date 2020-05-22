@@ -13,6 +13,20 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from datetime import timedelta
 
+import logging
+
+
+log = logging.getLogger()
+log.setLevel(logging.INFO)
+
+fh = logging.FileHandler('django.log', encoding='utf-8')
+fh.setLevel(logging.INFO)
+
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+fh.setFormatter(formatter)
+
+log.addHandler(fh)
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'profilebuku.apps.ProfilebukuConfig',
+    'auth_extra.apps.AuthExtraConfig',
     'story.apps.StoryConfig',
     'rest_framework',
     'corsheaders',
@@ -48,6 +63,9 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'knox.auth.TokenAuthentication',
     ),
@@ -106,12 +124,36 @@ AUTH_USER_MODEL = "profilebuku.UserModel"
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
+from auth_extra.password_validation import SpecialCharacterInclusionValidator
+
+
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'OPTIONS': {
+            'max_similarity': 0.5,
+        },
+    },
+    {
+        'NAME': 'auth_extra.password_validation.'
+                'MaximumLengthValidator',
+        'OPTIONS': {
+            'max_length': 40,
+        },
+    },
+    {
+        'NAME': 'auth_extra.password_validation.'
+                'SpecialCharacterInclusionValidator',
+        'OPTIONS': {
+            'special_chars': ('{','}', '^', '&') + SpecialCharacterInclusionValidator.DEFAULT_SPECIAL_CHARACTERS
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 12,
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
