@@ -10,7 +10,19 @@ UserModel._meta.get_field('email')._unique = True
 class UserModelSerialier(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserModel
-        fields = ("id", "email", "username_user", "no_telepon")
+        fields = ("id", "email", "username_user", "no_telepon", "slug",
+         "image_walpaper", "date_updated", "biografi", "alamat", "gender", "saldo")
+
+
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get("email", instance.email)
+        instance.username_user = validated_data.get("username_user", instance.username_user)
+        instance.no_telepon = validated_data.get("no_telepon", instance.no_telepon)
+        instance.image_walpaper = validated_data.get("image_walpaper", instance.image_walpaper)
+        instance.biografi = validated_data.get("biografi", instance.biografi)
+        instance.alamat = validated_data.get("alamat", instance.alamat)
+        instance.gender = validated_data.get("gender", instance.gender)
+        instance.saldo = validated_data.get("saldo", instance.saldo)
         
 
 class UserRegister(serializers.ModelSerializer):
