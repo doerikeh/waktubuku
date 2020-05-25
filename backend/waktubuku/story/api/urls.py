@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import SubCategoriesList, CategoriesList, CeritaList
+from .views import SubCategoriesList, CategoriesList, CeritaList, CeritaDetail
 
 
 app_name = "story"
@@ -12,5 +12,6 @@ router.register('api/story/categories/', CategoriesList, 'categories')
 urlpatterns = [
     path("", include(router.urls)),
     path("api/story/cerita/", CeritaList, name="list-cerita"),
-    
+    path("api/story/cerita/<int:pk>/", CeritaDetail, name="detail-cerita")
+
 ]
