@@ -7,7 +7,10 @@ app_name = "story"
 
 router = routers.DefaultRouter()
 router.register('api/story/subcategories/', SubCategoriesList, 'subcategories'),
-router.register('api/story/categories/', CategoriesList, 'categories'),
-router.register('api/story/cerita/', CeritaList, 'cerita')
+router.register('api/story/categories/', CategoriesList, 'categories')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path("", include(router.urls)),
+    path("api/story/cerita/", CeritaList, name="list-cerita"),
+    
+]
