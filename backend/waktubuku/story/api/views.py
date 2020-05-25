@@ -14,6 +14,7 @@ class SubCategoriesList(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     queryset = SubCategories.objects.all()
+    lookup_field = 'slug'
     serializer_class = SubCategoriesSerializer
 
 class CategoriesList(viewsets.ModelViewSet):
@@ -21,6 +22,7 @@ class CategoriesList(viewsets.ModelViewSet):
     permission_classes = [
         permissions.AllowAny
     ]
+    lookup_field = 'slug'
     serializer_class = CategoriesSerializer
 
 class CeritaList(APIView):

@@ -36,6 +36,7 @@ class UserAPIView(generics.RetrieveAPIView):
     permission_classes = [
         IsAuthenticated,
     ]
+    lookup_field = 'slug'
     serializer_class = UserModelSerialier
 
     def get_object(self):
