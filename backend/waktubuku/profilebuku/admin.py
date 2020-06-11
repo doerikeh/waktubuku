@@ -58,10 +58,6 @@ class UserAdmin(ProfileBukuAdmin):
         return ""
     img_profile.short_description = "Usermodel"
 
-    def get_readonly_fields(self, request, obj=None):
-        if not request.user.is_superuser and request.user.has_perm('usermodels.read_user'):
-            return [f.email for f in self.model._meta.fields]
-
 
 
 

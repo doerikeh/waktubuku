@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'story.apps.StoryConfig',
     'rest_framework',
     'corsheaders',
+    'channels',
     'knox',
 
 ]
@@ -86,6 +87,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+WSGI_APPLICATION = 'waktubuku.wsgi.application'
 
 ROOT_URLCONF = 'waktubuku.urls'
 
@@ -126,6 +128,12 @@ AUTH_USER_MODEL = "profilebuku.UserModel"
 
 from auth_extra.password_validation import SpecialCharacterInclusionValidator
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "core.routing.channel_routing",
+    },
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -185,3 +193,18 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+ASGI_APPLICATION = 'waktubuku.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

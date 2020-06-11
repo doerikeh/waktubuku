@@ -17,5 +17,7 @@ class CeritaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cerita
-        fields = ("id", "user", "judul", "categories", "sub_categories", "chapter", "status", "slug", "isi_cerita", "image_cover", "date_created", "date_updated")
+        fields = ("id", "user", "judul", "categories", "sub_categories",
+         "chapter", "status", "slug", "isi_cerita", "image_cover",
+         "date_created", "date_updated")
     

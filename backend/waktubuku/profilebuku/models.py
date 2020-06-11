@@ -78,7 +78,7 @@ class UserModel(AbstractUser):
     slug = models.SlugField()
     email = models.EmailField('email address', unique=True)
     no_telepon = models.CharField( max_length=20)
-    image_profile = models.ImageField(upload_to="image_profile/%Y/%m/%d", blank=True)
+    slug = models.ImageField(upload_to="image_profile/%Y/%m/%d", blank=True)
     image_walpaper = models.ImageField(upload_to="image_penwlpr_field/%Y/%m/%d", blank=True)
     date_updated = models.DateTimeField(auto_now=True)
     biografi = models.TextField()

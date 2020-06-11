@@ -7,6 +7,7 @@ from phonenumber_field.serializerfields import PhoneNumberField
 
 UserModel._meta.get_field('email')._unique = True
 
+
 class UserModelSerialier(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserModel

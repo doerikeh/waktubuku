@@ -1,0 +1,611 @@
+2020-05-21 19:17:10,990 INFO Watching for file changes with StatReloader
+2020-05-21 19:56:06,775 INFO Watching for file changes with StatReloader
+2020-05-21 19:56:59,684 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:00,953 INFO Watching for file changes with StatReloader
+2020-05-21 19:57:04,636 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:05,914 INFO Watching for file changes with StatReloader
+2020-05-21 19:57:12,796 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:14,134 INFO Watching for file changes with StatReloader
+2020-05-21 19:57:22,158 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:23,328 INFO Watching for file changes with StatReloader
+2020-05-21 19:57:25,712 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:26,864 INFO Watching for file changes with StatReloader
+2020-05-21 19:57:28,144 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:29,239 INFO Watching for file changes with StatReloader
+2020-05-21 19:57:36,805 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-21 19:57:38,188 INFO Watching for file changes with StatReloader
+2020-05-21 19:58:44,310 INFO Watching for file changes with StatReloader
+2020-05-21 19:58:48,548 ERROR Internal Server Error: /admin/profilebuku/usermodel/
+Traceback (most recent call last):
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\sqlite3\base.py", line 396, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: profilebuku_usermodel.saldo_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\sites.py", line 220, in inner
+    if not self.has_permission(request):
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\sites.py", line 194, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\functional.py", line 224, in inner
+    self._setup()
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\functional.py", line 360, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\__init__.py", line 180, in get_user
+    user = backend.get_user(user_id)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\backends.py", line 161, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\models\query.py", line 411, in get
+    num = len(clone)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\models\query.py", line 258, in __len__
+    self._fetch_all()
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\models\query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\models\sql\compiler.py", line 1151, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\db\backends\sqlite3\base.py", line 396, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: profilebuku_usermodel.saldo_id
+2020-05-21 20:03:30,179 INFO Watching for file changes with StatReloader
+2020-05-21 20:04:53,291 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-21 20:04:55,944 INFO Watching for file changes with StatReloader
+2020-05-21 20:12:32,596 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:12:33,584 INFO Watching for file changes with StatReloader
+2020-05-21 20:12:40,047 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:12:40,940 INFO Watching for file changes with StatReloader
+2020-05-21 20:12:42,168 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:12:43,023 INFO Watching for file changes with StatReloader
+2020-05-21 20:12:48,426 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:12:49,476 INFO Watching for file changes with StatReloader
+2020-05-21 20:13:02,209 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:13:03,141 INFO Watching for file changes with StatReloader
+2020-05-21 20:13:08,556 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:13:09,382 INFO Watching for file changes with StatReloader
+2020-05-21 20:13:10,704 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:13:11,595 INFO Watching for file changes with StatReloader
+2020-05-21 20:13:15,975 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:13:16,833 INFO Watching for file changes with StatReloader
+2020-05-21 20:14:10,333 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:14:11,603 INFO Watching for file changes with StatReloader
+2020-05-21 20:14:54,823 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:14:55,766 INFO Watching for file changes with StatReloader
+2020-05-21 20:15:22,109 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\__init__.py changed, reloading.
+2020-05-21 20:15:23,448 INFO Watching for file changes with StatReloader
+2020-05-22 00:11:38,325 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:07,878 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:09,296 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:11,993 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:13,762 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:17,737 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:18,819 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:22,831 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:23,949 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:31,166 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:32,560 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:35,738 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:37,093 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:43,641 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:44,709 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:51,620 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:53,065 INFO Watching for file changes with StatReloader
+2020-05-22 00:19:57,794 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\urls.py changed, reloading.
+2020-05-22 00:19:58,991 INFO Watching for file changes with StatReloader
+2020-05-22 00:21:30,190 INFO Watching for file changes with StatReloader
+2020-05-22 00:21:36,157 WARNING Not Found: /favicon.ico
+2020-05-22 00:25:56,069 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:25:57,449 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:00,388 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:01,652 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:03,297 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:04,996 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:07,809 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:09,315 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:11,047 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:12,227 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:17,033 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:18,324 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:21,122 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:22,527 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:25,253 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:26,593 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:31,499 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:32,665 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:34,350 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:35,577 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:37,341 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:38,550 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:40,281 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:41,780 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:47,177 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:48,661 INFO Watching for file changes with StatReloader
+2020-05-22 00:26:54,820 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:26:57,213 INFO Watching for file changes with StatReloader
+2020-05-22 00:27:36,941 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:27:38,327 INFO Watching for file changes with StatReloader
+2020-05-22 00:27:42,099 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:27:43,573 INFO Watching for file changes with StatReloader
+2020-05-22 00:27:45,907 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:27:47,558 INFO Watching for file changes with StatReloader
+2020-05-22 00:27:53,643 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:27:55,669 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:05,333 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:28:06,707 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:08,327 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:28:09,623 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:14,539 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:28:15,749 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:19,481 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\models.py changed, reloading.
+2020-05-22 00:28:20,580 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:31,785 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:32,903 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:37,184 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:38,318 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:41,085 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:43,001 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:44,633 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:45,876 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:48,135 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:49,661 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:51,378 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:52,555 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:54,685 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:28:56,097 INFO Watching for file changes with StatReloader
+2020-05-22 00:28:59,193 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:29:00,723 INFO Watching for file changes with StatReloader
+2020-05-22 00:29:02,991 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:29:04,359 INFO Watching for file changes with StatReloader
+2020-05-22 00:29:06,366 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 00:29:07,995 INFO Watching for file changes with StatReloader
+2020-05-22 07:35:59,542 INFO Watching for file changes with StatReloader
+2020-05-22 07:36:04,897 WARNING Not Found: /favicon.ico
+2020-05-22 09:24:12,490 INFO Watching for file changes with StatReloader
+2020-05-22 09:38:40,048 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:38:41,298 INFO Watching for file changes with StatReloader
+2020-05-22 09:38:44,444 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:38:45,529 INFO Watching for file changes with StatReloader
+2020-05-22 09:38:52,370 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:38:53,419 INFO Watching for file changes with StatReloader
+2020-05-22 09:51:14,773 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:27,640 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:28,627 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:34,290 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:35,306 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:38,895 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:39,962 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:41,546 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:42,912 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:44,495 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:45,491 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:47,142 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:48,290 INFO Watching for file changes with StatReloader
+2020-05-22 09:54:51,908 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:54:53,140 INFO Watching for file changes with StatReloader
+2020-05-22 09:56:24,540 INFO Watching for file changes with StatReloader
+2020-05-22 09:56:29,187 WARNING Not Found: /favicon.ico
+2020-05-22 09:56:54,763 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:56:55,905 INFO Watching for file changes with StatReloader
+2020-05-22 09:57:03,711 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:57:04,949 INFO Watching for file changes with StatReloader
+2020-05-22 09:57:06,820 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:57:07,897 INFO Watching for file changes with StatReloader
+2020-05-22 09:57:09,815 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 09:57:11,001 INFO Watching for file changes with StatReloader
+2020-05-22 10:01:01,462 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-05-22 10:01:02,438 INFO Watching for file changes with StatReloader
+2020-05-22 10:01:07,661 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-05-22 16:31:10,313 INFO Watching for file changes with StatReloader
+2020-05-22 16:31:49,790 WARNING Not Found: /api/auth/user/
+2020-05-22 16:42:09,321 WARNING Not Found: /favicon.ico
+2020-05-22 16:42:14,019 ERROR Internal Server Error: /admin/profilebuku/usermodel/1/change/
+Traceback (most recent call last):
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1641, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1555, in _changeform_view
+    ModelForm = self.get_form(request, obj, change=not add)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\admin.py", line 80, in get_form
+    return super().get_form(request, obj, **defaults)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 673, in get_form
+    exclude.extend(readonly_fields)
+TypeError: 'NoneType' object is not iterable
+2020-05-22 16:42:19,262 ERROR Internal Server Error: /admin/profilebuku/usermodel/2/change/
+Traceback (most recent call last):
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1641, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1555, in _changeform_view
+    ModelForm = self.get_form(request, obj, change=not add)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\admin.py", line 80, in get_form
+    return super().get_form(request, obj, **defaults)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 673, in get_form
+    exclude.extend(readonly_fields)
+TypeError: 'NoneType' object is not iterable
+2020-05-22 16:42:21,371 ERROR Internal Server Error: /admin/profilebuku/usermodel/1/change/
+Traceback (most recent call last):
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 607, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\sites.py", line 231, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1641, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 1555, in _changeform_view
+    ModelForm = self.get_form(request, obj, change=not add)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\auth\admin.py", line 80, in get_form
+    return super().get_form(request, obj, **defaults)
+  File "C:\Users\ike\Envs\package\lib\site-packages\django\contrib\admin\options.py", line 673, in get_form
+    exclude.extend(readonly_fields)
+TypeError: 'NoneType' object is not iterable
+2020-05-22 16:42:43,766 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 16:42:45,044 INFO Watching for file changes with StatReloader
+2020-05-22 16:42:54,042 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 16:42:55,340 INFO Watching for file changes with StatReloader
+2020-05-22 16:43:00,951 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\admin.py changed, reloading.
+2020-05-22 16:43:02,373 INFO Watching for file changes with StatReloader
+2020-05-22 16:43:14,981 WARNING Not Found: /api/profile/
+2020-05-22 16:50:38,258 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:50:39,509 INFO Watching for file changes with StatReloader
+2020-05-22 16:50:57,274 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:50:58,604 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:04,107 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:05,413 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:08,514 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:09,990 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:13,181 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:14,589 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:20,047 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:21,457 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:30,846 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:32,094 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:35,308 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:36,588 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:44,656 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:46,015 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:51,656 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:53,024 INFO Watching for file changes with StatReloader
+2020-05-22 16:51:54,981 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-22 16:51:56,435 INFO Watching for file changes with StatReloader
+2020-05-22 16:52:00,039 WARNING Not Found: /api/auth/user/
+2020-05-22 18:31:27,215 INFO Watching for file changes with StatReloader
+2020-05-22 18:32:09,870 WARNING Not Found: /api/auth/user/
+2020-05-22 19:20:56,894 WARNING Not Found: /api/auth/user/
+2020-05-22 19:21:13,275 WARNING Not Found: /api/auth/user/
+2020-05-22 19:21:16,448 WARNING Not Found: /api/auth/user/
+2020-05-22 19:21:52,560 WARNING Not Found: /api/auth/user/
+2020-05-22 19:35:39,643 WARNING Not Found: /api/auth/user/
+2020-05-22 19:45:09,038 WARNING Not Found: /api/auth/user/
+2020-05-22 20:26:53,474 INFO Watching for file changes with StatReloader
+2020-05-22 20:28:56,994 WARNING Not Found: /api/auth/user/
+2020-05-22 20:29:45,468 WARNING Not Found: /api/auth/user/
+2020-05-23 08:31:48,875 INFO Watching for file changes with StatReloader
+2020-05-23 08:32:03,297 WARNING Not Found: /api/auth/user/
+2020-05-23 09:04:05,913 WARNING Not Found: /api/auth/user/
+2020-05-23 09:11:34,725 WARNING Not Found: /api/auth/user/
+2020-05-23 09:11:36,364 WARNING Not Found: /api/auth/user/
+2020-05-23 09:18:05,159 WARNING Not Found: /api/auth/user/
+2020-05-23 09:18:13,748 WARNING Not Found: /api/auth/user/
+2020-05-23 09:30:44,777 WARNING Not Found: /api/auth/user/
+2020-05-23 09:30:50,765 WARNING Not Found: /api/auth/user/
+2020-05-23 10:01:37,187 WARNING Not Found: /api/auth/user/
+2020-05-23 10:01:42,703 WARNING Not Found: /api/auth/user/
+2020-05-23 11:01:32,897 WARNING Not Found: /api/auth/user/
+2020-05-23 11:01:32,918 WARNING Not Found: /api/auth/user/
+2020-05-23 11:01:42,220 WARNING Not Found: /api/auth/user/
+2020-05-23 11:01:48,588 WARNING Not Found: /api/auth/user/
+2020-05-23 11:01:54,014 WARNING Not Found: /api/auth/user/
+2020-05-23 11:02:26,477 WARNING Not Found: /api/auth/user/
+2020-05-23 11:02:26,496 WARNING Not Found: /api/auth/user/
+2020-05-23 11:11:12,547 WARNING Not Found: /api/auth/user/
+2020-05-23 11:11:12,589 WARNING Not Found: /api/auth/user/
+2020-05-23 11:11:57,235 WARNING Not Found: /api/auth/user/
+2020-05-23 11:11:57,258 WARNING Not Found: /api/auth/user/
+2020-05-23 11:12:22,744 WARNING Not Found: /api/auth/user/
+2020-05-23 11:12:22,775 WARNING Not Found: /api/auth/user/
+2020-05-23 11:12:30,316 WARNING Not Found: /api/auth/user/
+2020-05-23 11:12:30,342 WARNING Not Found: /api/auth/user/
+2020-05-23 11:16:52,488 WARNING Not Found: /api/auth/user//
+2020-05-23 11:16:52,511 WARNING Not Found: /api/auth/user/
+2020-05-23 11:17:20,190 WARNING Not Found: /api/auth/user/
+2020-05-23 11:17:20,223 WARNING Not Found: /api/auth/user/
+2020-05-23 11:17:32,108 WARNING Not Found: /api/auth/user/
+2020-05-23 11:17:32,340 WARNING Not Found: /favicon.ico
+2020-05-23 11:17:57,110 WARNING Unauthorized: /api/user/
+2020-05-23 11:17:57,176 WARNING Not Found: /api/auth/user/
+2020-05-23 11:18:14,234 WARNING Unauthorized: /api/user/
+2020-05-23 11:18:24,940 WARNING Not Found: /api/auth/user/
+2020-05-23 11:19:39,979 WARNING Unauthorized: /api/user/
+2020-05-23 17:40:48,838 INFO Watching for file changes with StatReloader
+2020-05-23 17:40:59,862 WARNING Unauthorized: /api/user/
+2020-05-23 17:42:03,891 WARNING Unauthorized: /api/user/
+2020-05-23 17:42:07,009 WARNING Unauthorized: /api/user/
+2020-05-23 17:42:14,764 WARNING Unauthorized: /api/user/
+2020-05-23 17:42:31,872 WARNING Unauthorized: /api/user/
+2020-05-23 17:43:19,481 WARNING Unauthorized: /api/user/
+2020-05-23 17:43:36,947 WARNING Unauthorized: /api/user/
+2020-05-23 17:43:44,023 WARNING Unauthorized: /api/user/
+2020-05-23 17:43:56,868 WARNING Unauthorized: /api/user/
+2020-05-23 17:44:20,342 WARNING Unauthorized: /api/user/
+2020-05-23 18:33:26,883 INFO Watching for file changes with StatReloader
+2020-05-23 19:09:07,385 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:09:08,968 INFO Watching for file changes with StatReloader
+2020-05-23 19:09:11,031 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:09:12,112 INFO Watching for file changes with StatReloader
+2020-05-23 19:09:16,259 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:09:17,331 INFO Watching for file changes with StatReloader
+2020-05-23 19:09:20,503 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:09:21,729 INFO Watching for file changes with StatReloader
+2020-05-23 19:09:26,850 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:09:27,885 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:01,719 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:02,798 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:05,962 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:06,997 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:18,393 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:19,531 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:22,627 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:23,725 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:26,778 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:27,812 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:30,871 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:32,032 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:37,268 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:38,328 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:40,238 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:41,411 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:43,375 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:44,679 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:47,690 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:48,794 INFO Watching for file changes with StatReloader
+2020-05-23 19:10:56,703 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:10:57,864 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:03,474 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:04,680 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:06,621 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:07,785 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:09,820 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:10,978 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:14,338 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:15,634 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:17,651 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:18,894 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:20,921 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:22,330 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:25,456 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:26,718 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:29,944 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:31,222 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:33,309 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:34,456 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:36,472 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:37,713 INFO Watching for file changes with StatReloader
+2020-05-23 19:11:40,871 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\profilebuku\api\serializer.py changed, reloading.
+2020-05-23 19:11:42,118 INFO Watching for file changes with StatReloader
+2020-05-25 05:53:38,820 INFO Watching for file changes with StatReloader
+2020-05-25 06:36:05,902 INFO Watching for file changes with StatReloader
+2020-05-25 07:08:20,329 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:08:21,695 INFO Watching for file changes with StatReloader
+2020-05-25 07:08:32,206 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:08:33,599 INFO Watching for file changes with StatReloader
+2020-05-25 07:08:45,262 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:08:46,664 INFO Watching for file changes with StatReloader
+2020-05-25 07:08:55,200 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:08:56,759 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:03,516 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:05,099 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:18,047 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:19,301 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:23,951 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:25,255 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:33,454 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:34,977 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:39,376 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:40,989 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:46,591 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:48,729 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:52,192 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:53,367 INFO Watching for file changes with StatReloader
+2020-05-25 07:09:57,868 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:09:59,808 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:01,866 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:03,170 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:06,409 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:08,331 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:11,572 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:13,433 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:17,839 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:19,217 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:21,238 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:23,130 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:26,779 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:28,284 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:32,847 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:34,831 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:41,855 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:43,117 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:52,569 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:54,030 INFO Watching for file changes with StatReloader
+2020-05-25 07:10:55,963 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:10:57,167 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:02,017 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:03,243 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:07,759 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:09,260 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:13,025 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:14,291 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:20,423 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:21,993 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:26,505 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:27,971 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:32,423 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:33,628 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:36,716 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:37,980 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:48,855 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:50,030 INFO Watching for file changes with StatReloader
+2020-05-25 07:11:53,293 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:11:54,706 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:00,970 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:02,110 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:14,516 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:16,214 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:20,545 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:21,975 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:24,019 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:25,401 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:28,684 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:29,904 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:31,985 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:33,212 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:45,988 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:47,064 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:49,024 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:50,094 INFO Watching for file changes with StatReloader
+2020-05-25 07:12:51,998 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:12:53,244 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:03,741 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:05,753 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:12,752 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:13,836 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:20,750 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:21,902 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:26,437 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:27,701 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:30,727 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:32,148 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:36,470 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:37,841 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:41,073 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:42,510 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:45,496 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:46,556 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:53,021 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:54,822 INFO Watching for file changes with StatReloader
+2020-05-25 07:13:57,935 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:13:59,197 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:04,995 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:06,262 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:11,283 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:12,512 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:17,151 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:18,776 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:23,075 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:24,615 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:30,223 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:31,656 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:33,572 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:34,709 INFO Watching for file changes with StatReloader
+2020-05-25 07:14:43,334 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:14:44,558 INFO Watching for file changes with StatReloader
+2020-05-25 07:17:57,907 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:17:59,965 INFO Watching for file changes with StatReloader
+2020-05-25 07:18:17,304 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:18:18,491 INFO Watching for file changes with StatReloader
+2020-05-25 07:18:20,766 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\story\api\views.py changed, reloading.
+2020-05-25 07:18:21,895 INFO Watching for file changes with StatReloader
+2020-05-25 18:39:49,326 INFO Watching for file changes with StatReloader
+2020-06-11 10:40:45,327 INFO Watching for file changes with StatReloader
+2020-06-11 10:45:11,973 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-06-11 10:45:14,089 INFO Watching for file changes with StatReloader
+2020-06-11 10:45:16,536 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-06-11 10:45:18,264 INFO Watching for file changes with StatReloader
+2020-06-11 10:45:26,795 INFO Watching for file changes with StatReloader
+2020-06-11 10:51:22,995 INFO Watching for file changes with StatReloader
+2020-06-11 10:52:52,393 INFO Watching for file changes with StatReloader
+2020-06-11 10:54:45,342 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-06-11 10:54:47,097 INFO Watching for file changes with StatReloader
+2020-06-11 10:54:47,540 INFO HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2020-06-11 10:54:47,540 INFO Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2020-06-11 10:54:47,540 INFO Listening on TCP address 127.0.0.1:8000
+2020-06-11 10:54:50,226 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-06-11 10:54:51,961 INFO Watching for file changes with StatReloader
+2020-06-11 10:55:32,918 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
+2020-06-11 10:55:34,835 INFO Watching for file changes with StatReloader
+2020-06-11 10:55:36,885 INFO C:\Users\ike\Documents\waktubuku\backend\waktubuku\waktubuku\settings.py changed, reloading.
