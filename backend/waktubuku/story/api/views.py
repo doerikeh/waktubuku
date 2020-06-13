@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
 from rest_framework.views import APIView
-
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .serializer import SubCategoriesSerializer, CeritaSerializer, CategoriesSerializer
 from ..models import SubCategories, Cerita, Categories
@@ -25,18 +25,12 @@ class CategoriesList(viewsets.ModelViewSet):
     lookup_field = 'slug'
     serializer_class = CategoriesSerializer
 
-class CeritaList(APIView):
-    def get(self, request, format=None):
-        cerita = Cerita.objects.all()
-        serializer = CeritaSerializer(cerita, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = CeritaSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class CeritaList(viewsets.ModelViewSet):
+    queryset = Cerita.objects.all()
+    permission_classes = [
+        IsAuthenticated,
+    ]
+    serializer_class = CeritaSerializer
 
 
 class CeritaDetail(APIView):

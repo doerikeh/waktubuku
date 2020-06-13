@@ -27,7 +27,7 @@ admin.empty_value_display = '**Empty**'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include("profilebuku.api.urls")),
-    path("", include("story.api.urls")),
+    path("api/", include("story.api.urls")),
 ]   
 
 if settings.DEBUG:

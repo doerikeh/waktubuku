@@ -11,8 +11,11 @@ UserModel._meta.get_field('email')._unique = True
 class UserModelSerialier(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserModel
-        fields = ("id", "email", "username_user", "no_telepon", "slug",
+        fields = ("id", "email", "username_user", "no_telepon", "slug", "image_profile", 
          "image_walpaper", "date_updated", "biografi", "alamat", "gender", "saldo")
+        extra_kwargs = {
+            "url":{"lookup_field":"slug"}
+        }
 
 
     def update(self, instance, validated_data):
@@ -20,6 +23,7 @@ class UserModelSerialier(serializers.HyperlinkedModelSerializer):
         instance.username_user = validated_data.get("username_user", instance.username_user)
         instance.no_telepon = validated_data.get("no_telepon", instance.no_telepon)
         instance.image_walpaper = validated_data.get("image_walpaper", instance.image_walpaper)
+        instance.image_profile = validated_data.get("image_profile", instance.image_profile)
         instance.biografi = validated_data.get("biografi", instance.biografi)
         instance.alamat = validated_data.get("alamat", instance.alamat)
         instance.gender = validated_data.get("gender", instance.gender)
